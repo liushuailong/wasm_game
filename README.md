@@ -56,6 +56,8 @@ vim index.html
     # wasm-opt = false
 # 7.1 编写库文件代码
     # 参考lib.rs
+# 7.2 wasm-pack 软件的安装
+    # wasm-pack-init.exe
 # 8. 安装wasm-pack
     # 网址：https://rustwasm.github.io/wasm-pack/installer/
 # 9. 生成wesm二进制文件
@@ -80,4 +82,28 @@ npm run dev
     # 新建bootstrap.js文件来捕获错误
     # 需要修改webpack.config.js
         # 修改入库文件未bootstrap.js
+```
+
+## Git使用
+
+```bash
+# 1. 创建项目文件夹
+# 2. 编写.gitignore文件
+# 3. 初始化仓库
+git init
+git add .
+git commit -m "初始化仓库"
+# 4. 创建github仓库
+# 5. 关键本地仓库和远程仓库
+git remote add origin git@github.com:liushuailong/wasm_game.git
+git branch -M main
+# 5.1 生成ssh秘钥
+ssh-keygen -t ed25519 -C "liushuailong001@163.com"
+# 5.2 将秘钥信息写到github账号中
+# 6 提交git签名
+git tag -s v0.1.0ab81b11 -m "the framework of the wasm project"
+# 6.1 gpg4win软件的安装
+# 6.2 生成gpg签名秘钥，将公钥提交到github账号中
+gpg --gen-key
+
 ```
