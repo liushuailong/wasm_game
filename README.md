@@ -74,4 +74,10 @@ npm install
     # });
 # 13. 运行
 npm run dev
+# 14. 错误捕获，用于调试，weealloc和bootstrap.js
+# 14.1 rust安装weealloc依赖包
+# 14.2 捕获index.js中的错误
+    # 新建bootstrap.js文件来捕获错误
+    # 需要修改webpack.config.js
+        # 修改入库文件未bootstrap.js
 ```
