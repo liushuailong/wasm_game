@@ -3,7 +3,7 @@
 ## 背景和参考
 项目学习参考 bilibili 上从零开始创建一个 WebAssembly 游戏视频教程
 
-## 项目搭建流程
+## 项目框架搭建流程
 
 ```bash
 # 1. 创建rust lib库用于rust编写代码生成wasm二进制文件
@@ -61,6 +61,7 @@ vim index.html
 # 8. 安装wasm-pack
     # 网址：https://rustwasm.github.io/wasm-pack/installer/
 # 9. 生成wesm二进制文件
+# 9.1 每次更新rust库文件代码后都要运行，已生成新的二进制文件，IDE工具才会有更好的提示
 wasm-pack build --target web
 # 10. 修改webpack依赖
     # "dependencies": {
@@ -105,5 +106,18 @@ git tag -s v0.1.0ab81b11 -m "the framework of the wasm project"
 # 6.1 gpg4win软件的安装
 # 6.2 生成gpg签名秘钥，将公钥提交到github账号中
 gpg --gen-key
+todo()!!
+# 在提交tag时一直报这个错误，按照github上面配置了gpg秘钥也不行！！！
+# gpg: skipped "E4C5E47217638EC3": No secret key
+# gpg: signing failed: No secret key
+# error: gpg failed to sign the data
+# error: unable to sign the tag
+```
+
+## 业务流程搭建
+```bash
+# 1. 创建画布
+# 1.1 使用rust的动态数组Vec来存储网格中的位置
+
 
 ```
