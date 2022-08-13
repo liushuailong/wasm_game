@@ -1,0 +1,8 @@
+/target
+/Cargo.lock
+/pkg
+/www/node_modules
+/www/public
+/wasm-pack-init.exe
+/wasm-pack-init.stamp
+/.idea
