@@ -112,6 +112,9 @@ todo()!!
 # gpg: signing failed: No secret key
 # error: gpg failed to sign the data
 # error: unable to sign the tag
+
+# 7 修改最新一次本地提交的commit信息
+git rebase -i HEAD~1
 ```
 
 ## 业务流程搭建
