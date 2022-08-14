@@ -26,6 +26,7 @@ import init, {hello, World} from "wasm_game";
 init().then(() => {
     console.log("ok");
     const CELL_SIZE = 20;
+    const fps = 5;
     const world = World.new(16);
     const worldWidth = world.width();
 
@@ -49,6 +50,36 @@ init().then(() => {
         }
         context.stroke(); // 对路径进行着色
     }
-    drawWorld(); // 执行绘制游戏区域方格
 
+    // 2. 绘制蛇头
+    function drawSnake() {
+        const snake_index = world.snake_head_index();
+        const row = Math.floor(snake_index / worldWidth);
+        const col = snake_index % worldWidth;
+
+        context.beginPath();
+        context.fillRect(
+            col * CELL_SIZE,
+            row * CELL_SIZE,
+            CELL_SIZE,
+            CELL_SIZE,
+        );
+        context.stroke();
+    }
+
+    function draw() {
+        drawWorld(); // 执行绘制游戏区域方格
+        drawSnake();
+    }
+
+    function run() {
+        setTimeout(() => {
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            world.update();
+            draw();
+            requestAnimationFrame(run);
+        }, 1000 / fps);
+    }
+
+    run();
 })
