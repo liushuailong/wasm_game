@@ -24,10 +24,10 @@ npm isntall --save-dev webpack-dev-server
         # const CopyWebpackPlugin = require("copy-webpack-plugin");
         # 
         # module.exports = {
-        #     entry: "./index.js",
+        #     entry: "./index.ts",
         #     output: {
         #         path: path.resolve(__dirname, "public"),
-        #         filename: "index.js"
+        #         filename: "index.ts"
         #     },
         #     mode: "development",
         #     plugins: [
@@ -40,9 +40,9 @@ npm isntall --save-dev webpack-dev-server
     # 在package.json的script中添加下面内容
       "dev": "webpack-dev-server",
       "build": "webpack build"
-# 6. 创建public目录, 项目入口文件（index.js, index.html);
+# 6. 创建public目录, 项目入口文件（index.ts, index.html);
 mkdir public
-vim index.js
+vim index.ts
 vim index.html
 
 # 7. 配置cargo.toml文件
@@ -83,6 +83,14 @@ npm run dev
     # 新建bootstrap.js文件来捕获错误
     # 需要修改webpack.config.js
         # 修改入库文件未bootstrap.js
+# 15. 将JavaScript转换为TypeScript
+cd www
+npm install --save typescript ts-loader
+# 15.1 创建tsconfig.json
+# 15.2 修改webpack.config.js
+# 15.3 修改index.js为index.ts
+# 15.4 修改bootstrap.js
+
 ```
 
 ## Git使用
@@ -121,6 +129,8 @@ git rebase -i HEAD~1
 ```bash
 # 1. 创建画布
 # 1.1 使用rust的动态数组Vec来存储网格中的位置
-
+# 2. 绘制蛇头
+# 3. 随机产生蛇头的位置
+# 4. 控制蛇头移动的方向功能
 
 ```

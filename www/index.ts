@@ -22,19 +22,38 @@
 //
 // run();
 
-import init, {hello, World} from "wasm_game";
+import init, {Direction, hello, World} from "wasm_game";
+import {random} from "./utils/random";
 init().then(() => {
     console.log("ok");
     const CELL_SIZE = 20;
+    const WORLD_WIDTH = 8;
     const fps = 5;
-    const world = World.new(16);
+    const snakeIndex = random(WORLD_WIDTH*WORLD_WIDTH);
+    const world = World.new(WORLD_WIDTH, snakeIndex);
     const worldWidth = world.width();
 
-    const canvas = document.getElementById("sanke-world"); // 获取画布元素
+    const canvas = <HTMLCanvasElement>document.getElementById("sanke-world"); // 获取画布元素
     const context = canvas.getContext("2d"); // 使用canvas 2D api绘制图形
 
     canvas.width = worldWidth * CELL_SIZE;
     canvas.height = worldWidth * CELL_SIZE;
+    document.addEventListener("keydown", e => {
+        switch (e.code) {
+            case "ArrowUp":
+                world.change_snake_direction(Direction.Up);
+                break;
+            case "ArrowDown":
+                world.change_snake_direction(Direction.Down);
+                break;
+            case "ArrowLeft":
+                world.change_snake_direction(Direction.Left);
+                break;
+            case "ArrowRight":
+                world.change_snake_direction(Direction.Right);
+                break;
+        }
+    })
     // 1. 绘制游戏的区域
     function drawWorld() {
         context.beginPath(); // 开始一个新的路径, 清空子路径列表
